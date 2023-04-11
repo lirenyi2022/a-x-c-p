@@ -2,7 +2,12 @@
 
 # 设置各变量
 WSPATH=${WSPATH:-'argo'}
-UUID=${UUID:-'de04add9-5c68-8bab-950c-08cd5320df18'}
+UUID=${UUID:-'2cc0928f-01d4-4237-a59d-f981428409f5'}
+
+# 哪吒三个参数，不需要的话可以留空，删除或在这三行最前面加 # 以注释
+NEZHA_SERVER=flynezha.fly.dev 
+NEZHA_PORT=5555
+NEZHA_KEY=JcRNpKxc3SahYJoXLi
 
 generate_config() {
   cat > config.json << EOF
@@ -283,6 +288,11 @@ ABC
 generate_nezha() {
   cat > nezha.sh << EOF
 #!/usr/bin/env bash
+
+# 哪吒的三个参数
+NEZHA_SERVER=${NEZHA_SERVER}
+NEZHA_PORT=${NEZHA_PORT}
+NEZHA_KEY=${NEZHA_KEY}
 
 # 检测是否已运行
 check_run() {
